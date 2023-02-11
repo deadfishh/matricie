@@ -1,4 +1,5 @@
 from Matricie import Matricie
+from TruthTable import TruthTable
 
 m1 = [[2, 2, 4, 5],
         [9, 5, 2, 7], 
@@ -25,5 +26,6 @@ x1 = [[1, 2, 3]]
 x2 = [[2], [7], [2]]
 
 f2 = [[4, 7], [1, 3], [5, 2]]
-mat = Matricie()
-mat.determ(m4)
+tt = TruthTable()
+states = ["pvq", "~(p^q)"]
+tt.makeTable(states)
