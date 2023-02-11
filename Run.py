@@ -1,5 +1,6 @@
 from Matricie import Matricie
 from TruthTable import TruthTable
+from Numbers import Numbers
 
 m1 = [[2, 2, 4, 5],
         [9, 5, 2, 7], 
@@ -26,6 +27,5 @@ x1 = [[1, 2, 3]]
 x2 = [[2], [7], [2]]
 
 f2 = [[4, 7], [1, 3], [5, 2]]
-tt = TruthTable()
-states = ["(p^q) -> r"]
-tt.printTable(states)
+num = Numbers()
+num.prime_factorization(700)
