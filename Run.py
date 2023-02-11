@@ -27,5 +27,5 @@ x2 = [[2], [7], [2]]
 
 f2 = [[4, 7], [1, 3], [5, 2]]
 tt = TruthTable()
-states = ["pvq", "~(p^q)"]
-tt.makeTable(states)
+states = ["(p^q) -> r"]
+tt.printTable(states)

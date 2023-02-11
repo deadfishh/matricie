@@ -19,9 +19,8 @@ class TruthTable:
                     answer[i][j] = "F"
         for i in range (len(letters), cols):
             answer[0][i] = statements[i - len(letters)]
-        self.writeAnswers(answer, len(letters))
-        for i in range (len(answer)):
-            print(answer[i])
+        answer = self.writeAnswers(answer, len(letters))
+        return answer
             
 
     def findRows(self, statements):
@@ -39,6 +38,11 @@ class TruthTable:
         sent = sent.replace("F", "False")
         sent = sent.replace("v", " or ")
         sent = sent.replace("~", "not ")
+        if "->" in sent:
+            arr = sent.split("->")
+            first = eval(arr[0])
+            second = eval(arr[1])
+            return self.arrow(str(first) + " -> " + str(second))
         return(eval(sent))
 
     def writeAnswers(self, table, letnum):
@@ -48,4 +52,14 @@ class TruthTable:
                 for k in range (letnum):
                     sentence = sentence.replace(table[0][k], table[i][k])
                 table[i][j] = str(self.parse(sentence))[0]
+        return table
 
+    def arrow(self, sent):
+        if sent == "True -> False":
+            return False
+        return True
+
+    def printTable(self, statements):
+        table = self.makeTable(statements)
+        for i in range (len(table)):
+            print(table[i])
